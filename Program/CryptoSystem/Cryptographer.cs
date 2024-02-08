@@ -45,13 +45,6 @@ namespace PPPI_LR2_MODULES
         /// Get RSA KEY in string 
         /// </summary>
         /// <returns>rsa key</returns>
-        public string GetRsaKey() { throw new NotImplementedException(); }
-
-        /// <summary>
-        /// Get Aes IV + KEY 
-        /// </summary>
-        /// <param name="encoding">specified encoding</param>
-        /// <returns>Aes initial vector and key string IV + KEY in specified encoding</returns>
-        public string GetAesKey(Encoding encoding) { throw new NotImplementedException(); }
+        public string GetRsa
     }
 }
