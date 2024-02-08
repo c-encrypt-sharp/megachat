@@ -23,5 +23,12 @@ namespace PPPI_LR2_MODULES
         /// <param name="index">index of message</param>
         /// <returns>asynchronous task object</returns>
         public async Task DeleteMessagesAsync(int index) { await new MessageManager().DeleteMessageAsync(index); }
+
+        /// <summary>
+        /// Load messages asynchronously
+        /// </summary>
+        /// <param name="count">count messages</param>
+        /// <returns>asynchronous task object</returns>
+        public async Task LoadMessagesAsync(int count) { await new MessageManager().LoadMessagesAsync(count); }
     }
 }
