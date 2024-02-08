@@ -13,7 +13,15 @@ namespace PPPI_LR2_MODULES
         /// <summary>
         /// Sends a message asynchronously
         /// </summary>
+        /// <param name="messageModel">message for send</param>
         /// <returns>asynchronous task object</returns>
-        public async Task SendMessagesAsync() { await new MessageManager().SendMessageAsync(new MessageModel()); }
+        public async Task SendMessagesAsync(MessageModel messageModel) { await new MessageManager().SendMessageAsync(messageModel); }
+
+        /// <summary>
+        /// Deletes a message asynchronously
+        /// </summary>
+        /// <param name="index">index of message</param>
+        /// <returns>asynchronous task object</returns>
+        public async Task DeleteMessagesAsync(int index) { await new MessageManager().DeleteMessageAsync(index); }
     }
 }
