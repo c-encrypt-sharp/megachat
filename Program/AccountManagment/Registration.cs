@@ -17,6 +17,14 @@ namespace PPPI_LR2_MODULES
         /// Registers a new account
         /// </summary>
         /// <param name="accountData">registration details</param>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// new Registration(){...}.RegisterAccount(new AccountDataModel(){...});
+        /// </code>
+        /// </example>
         public void RegisterAccount(AccountDataModel accountData) { }
 
         /// <summary>
@@ -24,6 +32,14 @@ namespace PPPI_LR2_MODULES
         /// </summary>
         /// <param name="username">login for authorization</param>
         /// <param name="password">password for authorization as a secure string</param>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// new Registration(){...}.Authorization(string.Empty, new SecureString());
+        /// </code>
+        /// </example>
         public void Authorization(string username, SecureString password) { }
     }
 }

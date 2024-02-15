@@ -17,12 +17,28 @@ namespace PPPI_LR2_MODULES
         /// Searches for specified data
         /// </summary>
         /// <param name="data">search data</param>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// new SearchEngine().FindData(string.Empty);
+        /// </code>
+        /// </example>
         public void FindData(string data) { }
 
         /// <summary>
         /// Sets search filters
         /// </summary>
         /// <param name="filters">search filters</param>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// new SearchEngine().SetFilters(filter1 | filter2);
+        /// </code>
+        /// </example>
         public void SetFilters(Filters filters) { }
     }
 }

@@ -15,6 +15,14 @@ namespace PPPI_LR2_MODULES
         /// </summary>
         /// <param name="messageModel">message for send</param>
         /// <returns>asynchronous task object</returns>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// await new PrivateMessagesWork().SendMessagesAsync(new MessageModel(){...});
+        /// </code>
+        /// </example>
         public async Task SendMessagesAsync(MessageModel messageModel) { await new MessageManager().SendMessageAsync(messageModel); }
 
         /// <summary>
@@ -22,6 +30,14 @@ namespace PPPI_LR2_MODULES
         /// </summary>
         /// <param name="index">index of message</param>
         /// <returns>asynchronous task object</returns>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// await new PrivateMessagesWork().DeleteMessagesAsync(0);
+        /// </code>
+        /// </example>
         public async Task DeleteMessagesAsync(int index) { await new MessageManager().DeleteMessageAsync(index); }
 
         /// <summary>
@@ -29,6 +45,14 @@ namespace PPPI_LR2_MODULES
         /// </summary>
         /// <param name="count">count messages</param>
         /// <returns>asynchronous task object</returns>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// await new PrivateMessagesWork().LoadMessagesAsync(0);
+        /// </code>
+        /// </example>
         public async Task LoadMessagesAsync(int count) { await new MessageManager().LoadMessagesAsync(count); }
     }
 }

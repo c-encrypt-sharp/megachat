@@ -14,12 +14,61 @@ namespace PPPI_LR2_MODULES
         /// Adds the specified account
         /// </summary>
         /// <param name="contact">selected account</param>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// new ContactManager().AddContact(new Contact()
+        /// {
+        ///     para1 = value;
+        ///     para2 = value;
+        ///     ...
+        /// });
+        /// </code>
+        /// 
+        ///     OR
+        /// 
+        /// <code>
+        /// var contact = new Contact()
+        /// {
+        ///     para1 = value;
+        ///     para2 = value;
+        ///     ...
+        /// };
+        /// new ContactManager().AddContact(contact);
+        /// </code>
+        /// </example>
         public void AddContact(Contact contact) { }
 
         /// <summary>
         /// Delete the specified account
         /// </summary>
         /// <param name="contact">selected account</param>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// new ContactManager().RemoveContact(new Contact()
+        /// {
+        ///     para1 = value;
+        ///     para2 = value;
+        ///     ...
+        /// });
+        /// </code>
+        /// 
+        ///     OR
+        /// 
+        /// <code>
+        /// var contact = new Contact()
+        /// {
+        ///     para1 = value;
+        ///     para2 = value;
+        ///     ...
+        /// };
+        /// new ContactManager().RemoveContact(contact);
+        /// </code>
         public void RemoveContact(Contact contact) { }
     }
 }

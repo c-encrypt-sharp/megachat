@@ -17,6 +17,16 @@ namespace PPPI_LR2_MODULES
         /// <param name="type">archiving type: zip, rar, 7z etc.</param>
         /// <param name="isForward">indicates that archiving or unarchiving of data is required; if true, the file will be compressed</param>      
         /// <returns>compressed or unarchived data</returns>
+        /// <example>
+        /// 
+        /// Example of using a function:
+        /// 
+        /// <code>
+        /// byte[] data = new byte[10];
+        /// ArchiveType type = ArchiveType.RAR;
+        /// new Archivator().Archive(data, type, true)
+        /// </code>
+        /// </example>
         public byte[] Archive(byte[] data, ArchiveType type, bool isForward = true) 
         {
             throw new NotImplementedException();
