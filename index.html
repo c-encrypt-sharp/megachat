@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="wow.min.js"></script>
+    <script>new WOW().init()</script>
+    <script src="https://kit.fontawesome.com/fc5368a64a.js" crossorigin="anonymous"></script>
+    <title>ПППИ ЛР 6</title>
+</head>
+
+<script>
+    window.addEventListener('scroll', () => {
+        let distance = window.scrollY;
+        
+        document.querySelectorAll('.section').forEach((item, i)=>{
+
+            if  (item.offsetTop <= distance) {
+                
+                document.querySelectorAll(".navigationInnerItem, .navigationOuterItem").forEach((item) => {
+                    if (item.classList.contains('navigationInnerItemActive')) 
+                        item.classList.remove('navigationInnerItemActive');
+                    else if (item.classList.contains('navigationOuterItemActive')) 
+                        item.classList.remove('navigationOuterItemActive');
+                });
+
+                let tagA = document.querySelectorAll(".navigationInnerItem, .navigationOuterItem")[i];
+                if (tagA.classList[0] == 'navigationInnerItem')
+                    tagA.classList.add('navigationInnerItemActive');  
+                else if (tagA.classList[0] == 'navigationOuterItem')
+                    tagA.classList.add('navigationOuterItemActive');                  
+            }
+        });
+
+        var outerContainer = document.getElementById("outContainer");
+        var navigationMenu = document.getElementById("navMenu");
+
+        var queryOUT = document.querySelector("#outContainer");
+        var queryNAV = document.querySelector("#navMenu");
+        var queryFTR = document.querySelector("#footerID");
+             
+        var valuesOUT = queryOUT.getBoundingClientRect();
+        var valuesNAV = queryNAV.getBoundingClientRect();
+        var valuesFTR = queryFTR.getBoundingClientRect();
+
+        
+        
+        
+        if (valuesNAV.bottom > valuesFTR.top){
+            navigationMenu.style.opacity = 0+"%";
+         
+        }
+        else{
+            navigationMenu.style.opacity = 100+"%";
+          
+        }
+    });
+</script>
+<script>
+    document.ready(()=>{
+        document.querySelectorAll(".navigationInnerItem, .navigationOuterItem").forEach((current) => 
+        {
+            current.addEventListener('click', () => {
+                document.querySelectorAll(".navigationInnerItem, .navigationOuterItem").forEach((item) => {
+                    if (item.classList.contains('navigationInnerItemActive')) 
+                        item.classList.remove('navigationInnerItemActive');
+                    else if (item.classList.contains('navigationOuterItemActive')) 
+                        item.classList.remove('navigationOuterItemActive');
+                });
+            
+                if (current.classList[0] == 'navigationInnerItem')
+                    current.classList.add('navigationInnerItemActive');  
+                else if (current.classList[0] == 'navigationOuterItem')
+                    current.classList.add('navigationOuterItemActive');              
+            });
+            
+                
+        });
+    });
+
+</script>
+
+<body class="main">
+    <div class="header">
+        <div class="HELP_MANUAL">
+            <a class="buttonManual" target="_blank" href="https://github.com/c-encrypt-sharp/megachat">GITHUB</a>
+            <a class="buttonManual" target="_blank" href="html/index.html">DOCUMENTATION</a>
+            <a class="buttonManual" target="_blank" href="PPPI_LR_5.chm">CHM</a>
+        </div>
+    </div>
+
+    
+    <div class="outerContainer" id="outContainer">
+
+
+        <div class="navigationMenu" id="navMenu">
+            <ul class="navigationList">
+                <li><a class="navigationOuterItem navigationOuterItemActive" href="#Introduction">Introduction</a></li>
+                <li><a class="navigationOuterItem" href="#Chapter1">Account Managment</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph1">AccountDataModel.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph2">AccountSettings.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph3">ConfidentialInformation.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph4">PersonalSettings.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph5">Registration.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph6">SettingsModel.cs</a></li>
+                    </ul>
+                </li>
+                <li><a class="navigationOuterItem" href="#Chapter2">Chat Communication</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph7">Contact.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph8">ContactManager.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph9">GroupMessagesWork.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph10">MessageManager.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph11">MessageModel.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph12">PrivateMessagesWork.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph13">SearchEngine.cs</a></li>
+                    </ul>
+                </li>
+                <li><a class="navigationOuterItem" href="#Chapter3">Crypto System</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph14">Cryptographer.cs</a></li>
+                    </ul>
+                </li>
+                <li><a class="navigationOuterItem" href="#Chapter4">File Managment</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph15">Archivator.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph16">FileLoader.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph17">FileWorker.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph18">ImageLoader.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph19">VideoAudioManager.cs</a></li>
+                    </ul>
+                </li>
+                <li><a class="navigationOuterItem" href="#Chapter5">Interaction Servers</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph20">AuthenticateException.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph21">CloudManager.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph22">ConnectException.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph23">DataBaseConnector.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph24">DisconnectException.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph25">StatisticCollection.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph26">StatisticElement.cs</a></li>
+                    </ul>
+                </li>
+                <li><a class="navigationOuterItem" href="#Chapter6">Mail Communication</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph27">MailWork.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph28">NotificationModel.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph29">NotificationWorker.cs</a></li>
+                    </ul>
+                </li>
+                <li><a class="navigationOuterItem" href="#Chapter7">Query Managment</a>
+                    <ul class="navigationList">
+                        <li><a class="navigationInnerItem" href="#Paragraph30">QueryManager.cs</a></li>
+                        <li><a class="navigationInnerItem" href="#Paragraph31">QuerySyntaxException.cs</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <section class="section" id="Introduction">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="introduction">
+                        <p class="titleStyle">Введение</p>
+                        <p class="paragraphMargin">Библиотека чата представляет собой инструмент, разработанный для обеспечения простого и эффективного взаимодействия между пользователями через текстовые сообщения. Библиотека предназначена для разработчиков, стремящихся интегрировать функционал чата в свои приложения, независимо от их платформы - веб, мобильные устройства или десктопные приложения.</p>
+                        <p class="paragraphMargin">Целью библиотеки является предоставление простого API для отправки, получения и управления сообщениями, а также удобных средств для управления пользователями и создания интерактивной среды общения. Потенциальные пользователи включают в себя разработчиков, которым необходима готовая реализация функционала чата для их приложений, позволяющая сосредоточиться на других аспектах разработки, не тратя время на создание чата с нуля.</p>
+                        <p class="paragraphMargin">Эта библиотека предоставляет надежное и масштабируемое решение для реализации чата, упрощая процесс интеграции и обеспечивая высокую производительность и безопасность обмена сообщениями. Библиотека позволит разработчикам быстро интегрировать функционал чата в свои приложения и улучшить пользовательский опыт. В библиотеке реализованы передовые методы обработки сообщений, управления пользователями и обеспечения безопасности данных, что делает ее идеальным выбором для различных типов приложений.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="Chapter1">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Управление аккаунтами</p>
+                    <p class="textStyle">Аккаунты могут быть важны для чата по нескольким причинам. Во-первых, они позволяют пользователям идентифицировать себя и устанавливать связь с другими участниками чата. Это может быть особенно полезно в случае чата в рабочем или профессиональном контексте, где важно знать, с кем вы общаетесь.</p>
+                    <p class="textStyle">Кроме того, аккаунты могут обеспечить безопасность и конфиденциальность в чате. Некоторые платформы чата могут предоставлять дополнительные функции, такие как защита паролем или шифрование сообщений, которые доступны только для зарегистрированных пользователей.    </p>             
+                    <p class="textStyle">Также аккаунты могут предоставлять возможности для сохранения истории чата, управления уведомлениями и настройки предпочтений пользователя. В целом, наличие аккаунта может повысить удобство и функциональность чата.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph1">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">AccountDataModel.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/AccountManagment/AccountDataModel.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_account_data_model.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>   
+                    <p class="textStyle">Класс <code class="codeClass">AccountDataModel.cs</code> предназначен для его использования другими модулями и компонентами. Хранит данные о текущем пользователе (удобно использовать для передачи в некоторые методы, чтобы не перечислять множество параметров).</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph2">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">AccountSettings.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/AccountManagment/AccountSettings.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_account_settings.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">AccountSettings.cs</code> используется для перечисления настроек аккаунта, которые в дальнейшем буду применяться для изменения настроек самого аккаунта (конфиденциальность, пароль, логин и тд.).</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph3">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">ConfidentialInformation.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/AccountManagment/ConfidentialInformation.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_confidential_information.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">ConfidentialInformation.cs</code> содержит основную информацию о конфиденциальности аккаунта, передаваемую модулю установки значений настроек аккаунта.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph4">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">PersonalSettings.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/AccountManagment/PersonalSettings.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_personal_settings.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">PersonalSettings.cs</code> предназначен для настройки данных аккаунта, связанных с чатами, оформлением аккаунта, а также получением уведомлений и блокировки звука уведомлений</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph5">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">Registration.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/AccountManagment/Registration.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_registration.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">Registration.cs</code> отвечает за регистрацию пользователя, а также его автотризацию, в случае, если аккаунт уже имеется. Модуль связывается с базой данных и записывает или считывает необходимые данные о пользователе.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph6">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">SettingsModel.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/AccountManagment/SettingsModel.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_settings_model.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">SettingsModel.cs</code> является моделью настроек, которые передаются для настройки аккаунта.</p>
+                </div>
+            </section>
+            <section class="section" id="Chapter2">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Взаимодействие сообщениями</p>
+                    <p class="textStyle">Взаимодействие между клиентами при помощи сообщений является основой чата. Над передачей сообщений ведется большая работа. Необходимо учитывать различные типы сообщений при отправке. Передача может осуществляться при помощи не только текстовых сообщений, но и сообщений других типов, таких как: голосовые, передача фалов, передача видео, а также множество других форматов</p>
+                    <p class="textStyle">Важно тщательно проработать функционал сообщений, так как необходимо учесть множество факторов, таких как шифрование сообщений, манипуляции с контактами и взаимодействия с другими пользователями, а также обработка сообщений.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph7">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">Contact.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/Contact.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_contact.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">Contact.cs</code> содержит данные о конкретном контакте. Класс может использоваться для поиска контактов, для взаимодействия с ними, а также может быть частью коллекции контактов пользователя.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph8">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">ContactManager.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/ContactManager.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_contact_manager.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">ContactManager.cs</code> отвечает за управление контактами, если необходимо удалить, добавить, редактировать аккаунт или даже связать аккаунты с телефонной книгой, то класс будет полезным. </p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph9">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">GroupMessagesWork.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/GroupMessagesWork.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_group_messages_work.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">GroupMessagesWork.cs</code> предназначен для обработки групповых сообщений (чатов). Помогает управлять чатами, создавая их, редактируя, начначяя администраторов чата, а также добавляя новых участников в чат. Хранит коллекцию участников в виде контактов.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph10">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">MessageManager.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/MessageManager.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_message_manager.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">MessageManager.cs</code> управляет сообщениями, проверяет, перенаправляет, шифрует сообщения при помощи модуля криптографии и др.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph11">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">MessageModel.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/MessageModel.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_message_model.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">MessageModel.cs</code> является моделью сообщения, которая используется для отправки данных через модуль обработки сообщений. Содержит данные об отправителе, получателе, само сообщение, идентификатор.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph12">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">PrivateMessagesWork.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/PrivateMessagesWork.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_private_messages_work.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">PrivateMessagesWork.cs</code> отвечает за обработку личных сообщений. Также как и для групповых сообщений, имеет необходимый для сообщений функционал.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph13">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">SearchEngine.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/ChatCommunication/SearchEngine.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_search_engine.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">SearchEngine.cs</code> исползуется для поиска введенных данных, таких как: пользователи, файлы, контакты, сообщения.</p>
+                </div>
+            </section>
+            <section class="section" id="Chapter3">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Криптография</p>
+                    <p class="textStyle">Криптография в чате нужна для обеспечения конфиденциальности, целостности и аутентичности передаваемой информации. Она позволяет защитить переписку от несанкционированного доступа, подмены сообщений и подделки идентификационных данных.</p>
+                    <p class="textStyle">Криптография используется для шифрования сообщений, проверки цифровых подписей, аутентификации пользователей и других методов защиты информации в чатах. В результате применения криптографии, участники чата могут быть уверены в том, что их коммуникации защищены от нежелательного вмешательства.</p>
+                </div>
+            </section>          
+            <section class="section" id="Paragraph14">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">Cryptographer.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/CryptoSystem/Cryptographer.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_cryptographer.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">Cryptographer.cs</code> используется многими модулями для создания шифрованных данных и каналов. Помогает защитить переписку и передачу данных между клиентами и серверами.</p>
+                </div>
+            </section>
+            <section class="section" id="Chapter4">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Управление файлами</p>
+                    <p class="textStyle">Обработка файлов в мессенджерах имеет несколько целей:</p>
+                    <p class="textStyle">Безопасность: При передаче файлов через мессенджеры, обработка файлов позволяет сканировать их на наличие вредоносных программ или вирусов, что помогает предотвратить возможные киберугрозы.</p>
+                    <p class="textStyle">Удобство: Обработка файлов может включать в себя автоматическое преобразование форматов файлов для обеспечения лучшей совместимости с устройствами получателя.</p>
+                    <p class="textStyle">Оптимизация: Некоторые мессенджеры могут выполнять обработку файлов для оптимизации их размера, уменьшая объем передаваемых данных и экономя трафик.</p>
+                    <p class="textStyle">Функциональность: Обработка файлов может также включать в себя создание миниатюр изображений, предварительный просмотр документов или аудиофайлов, обработку метаданных и другие функции, которые улучшают пользовательский опыт.</p>
+                    <p class="textStyle">Таким образом, обработка файлов в мессенджерах играет важную роль в обеспечении безопасной и удобной передачи информации между пользователями.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph15">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">Archivator.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/FileManagment/Archivator.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_archivator.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">Archivator.cs</code> сохраняет пространство, сжимая данные, что позволяет эффективнее передавать и хранить данные.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph16">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">FileLoader.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/FileManagment/FileLoader.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_file_loader.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">FileLoader.cs</code> загружает файлы, сохраняет их, а также позволяет скачивать файлы с удаленного сервера.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph17">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">FileWorker.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/FileManagment/FileWorker.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_file_worker.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">FileWorker.cs</code> предназначен для внутренней работы с популярными форматы, как Excel, Word и PowerPoint. Помогает редактировать документы и просматривать их не выходя из приложения.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph18">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">ImageLoader.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/FileManagment/ImageLoader.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_image_loader.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">ImageLoader.cs</code> обрабатывает изображения, позволяет скачивать и сохранять их, например, в облаке.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph19">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">VideoAudioManager.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/FileManagment/VideoAudioManager.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_video_audio_manager.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">VideoAudioManager.cs</code> выполняет тот же функционал, что и обработка изображений, только для видео-формата.</p>
+                </div>
+            </section>
+            <section class="section" id="Chapter5">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Взаимодействие с сервером</p>
+                    <p class="textStyle">Работа серверов в мессенджерах играет важную роль в обеспечении функциональности, безопасности и масштабируемости сервиса. Вот несколько ключевых аспектов работы серверов в мессенджерах:</p>
+                    <p class="textStyle">Хранение и передача сообщений: Сервера мессенджера отвечают за хранение сообщений и их передачу между участниками чата. Это включает в себя обработку и доставку текстовых сообщений, фотографий, видео, аудио и других медиафайлов.</p>
+                    <p class="textStyle">Управление контактами и профилями: Сервера мессенджера обеспечивают управление контактами и профилями пользователей, включая хранение информации о контактах, управление списками друзей и управление профилями пользователей.</p>
+                    <p class="textStyle">Шифрование и безопасность: Сервера мессенджера могут выполнять функции шифрования и дешифрования сообщений, а также обеспечивать безопасное хранение данных пользователей.</p>
+                    <p class="textStyle">Синхронизация устройств: Серверы мессенджера обеспечивают синхронизацию сообщений и данных между различными устройствами пользователя, такими как смартфоны, планшеты и компьютеры.</p>
+                    <p class="textStyle">Управление учетными записями: Сервера мессенджера отвечают за управление учетными записями пользователей, включая аутентификацию, авторизацию и управление доступом.</p>
+                    <p class="textStyle">В целом, серверы мессенджера играют важную роль в обеспечении бесперебойной и безопасной работы мессенджеров, а также в обеспечении удобства и функциональности для пользователей.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph20">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">AuthenticateException.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/AuthenticateException.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">AuthenticateException.cs</code> является исключением для аутентификации пользователя. Если произошла ошибка во время аутентификации, класс поможет понять ее суть.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph21">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">CloudManager.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/CloudManager.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_cloud_manager.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">CloudManager.cs</code> управляет взаимодействием с облаком. Используется в качестве посредника между клиентом и сервером. Загружает и передает данные пользователей.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph22">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">ConnectException.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/ConnectException.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">ConnectException.cs</code> является исключением при соединении с сервером, если во время подключения произошла ошибка, поможет разобраться с ней.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph23">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">DataBaseConnector.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/DataBaseConnector.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_data_base_connector.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">DataBaseConnector.cs</code> является посредником между клиентом и базой данных. Генерирует запросы и ппередает их серверу, обрабатывая перед отправкой.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph24">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">DisconnectException.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/DisconnectException.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">DisconnectException.cs</code> также как и класс исключения при соединении, позволяет выяснить ошибку при отключении от сервера.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph25">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">StatisticCollection.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/StatisticCollection.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_statistic_collection.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">StatisticCollection.cs</code> предназначени для сбора статистики о пользователях и сообщениях. Собирает статистику разного плана, такую как: информация о количестве пользователей онлайн, количестве пользователей за месяц и др.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph26">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">StatisticElement.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/InteractionServers/StatisticElement.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_statistic_element.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">StatisticElement.cs</code> является частью коллекции статистики, содержит необходимые данные об конкретном исследовании.</p>
+                </div>
+            </section>
+            <section class="section" id="Chapter6">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Взаимодействие с почтой</p>
+                    <p class="textStyle">Почта в мессенджерах может использоваться для нескольких целей:</p>
+                    <p class="textStyle">Регистрация: Почта может быть использована для регистрации нового аккаунта в мессенджере. После регистрации на указанный адрес электронной почты может быть отправлено письмо с подтверждением регистрации.</p>
+                    <p class="textStyle">Восстановление пароля: В случае утери пароля или учетных данных, мессенджер может использовать адрес электронной почты для отправки инструкций по восстановлению доступа к аккаунту.</p>
+                    <p class="textStyle">Уведомления: Мессенджеры могут использовать электронную почту для отправки уведомлений о новых сообщениях, обновлениях функций и других важных событиях.</p>
+                    <p class="textStyle">Подтверждение действий: Почта может быть использована для подтверждения различных действий, таких как изменение адреса электронной почты в профиле или подтверждение совершения определенных действий в мессенджере.</p>
+                    <p class="textStyle">Таким образом, почта в мессенджерах играет роль в обеспечении безопасности, связи с пользователями и обеспечении удобства в использовании мессенджеров.</p>
+                </div>
+            </section>    
+            <section class="section" id="Paragraph27">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">MailWork.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/MailCommunication/MailWork.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_mail_work.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">MailWork.cs</code> предназначен для взаимодействия с почтой. Отправка уведомлений на почту или получение сообщения с почты, а также присоединение почтового ящика к аккаунту.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph28">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">NotificationModel.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/MailCommunication/NotificationModel.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_notification_model.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">NotificationModel.cs</code> является моделью уведомлений и содержит данные уведомления (сообщение, дату, отправителя).</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph29">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">NotificationWorker.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/MailCommunication/NotificationWorker.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_notification_worker.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">NotificationWorker.cs</code> обрабатывает уведомления, оповещает пользователя, получившего уведомление, используется для отправки уведомлений и их прослушивания.</p>
+                </div>
+            </section>
+            <section class="section"  id="Chapter7">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <p class="titleStyle">Управление запросами</p>
+                    <p class="textStyle">Обработка запросов в мессенджерах является важной частью функциональности этих приложений. Вот несколько типичных запросов, которые могут обрабатываться в мессенджерах:</p>
+                    <p class="textStyle">Регистрация нового пользователя: При получении запроса на регистрацию нового пользователя мессенджер должен провести процедуру аутентификации и создать учетную запись для нового пользователя.</p>
+                    <p class="textStyle">Отправка сообщений: Мессенджер должен обрабатывать запросы на отправку сообщений, включая текстовые сообщения, медиафайлы, стикеры и другие типы контента.</p>
+                    <p class="textStyle">Управление контактами: Пользователи могут отправлять запросы на добавление новых контактов, удаление контактов или изменения статуса контактов. Мессенджер должен обрабатывать эти запросы и обновлять список контактов пользователя соответственно.</p>
+                    <p class="textStyle">Управление профилем: Пользователи могут отправлять запросы на изменение своего профиля, включая фотографии, статусы, информацию о себе и другие данные. Мессенджер должен обрабатывать эти запросы и обновлять профили пользователей.</p>
+                    <p class="textStyle">Запросы на подключение к аудио- и видеозвонкам: Мессенджер должен обрабатывать запросы на установление аудио- и видеозвонков между пользователями.</p>
+                    <p class="textStyle">Обработка запросов в мессенджерах должна быть эффективной, безопасной и масштабируемой, чтобы обеспечить удобство и функциональность для пользователей.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph30">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">QueryManager.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/QueryManagment/QueryManager.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_query_manager.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">QueryManager.cs</code> обрабатывает запросы пользователей, проверяет корректность и исправляет при необходимости.</p>
+                </div>
+            </section>
+            <section class="section" id="Paragraph31">
+                <div class="sectionContainer wow animate__animated animate__fadeInUp">
+                    <div class="titleContainer">
+                        <p class="subtitleStyle">QuerySyntaxException.cs</p>
+                        <div class="links">
+                            <a href="https://github.com/c-encrypt-sharp/megachat/blob/main/Program/QueryManagment/QuerySyntaxException.cs" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="html/class_p_p_p_i___l_r2___m_o_d_u_l_e_s_1_1_query_syntax_exception.html" target="_blank"><i class="fa-regular fa-file fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                            <a href="PPPI_LR_5.chm" target="_blank"><i class="fa-regular fa-circle-question fa-2xl" style="color: #f1c834;padding: 0px 10px"></i></a>
+                        </div>
+                    </div>
+                    <p class="textStyle">Класс <code class="codeClass">QuerySyntaxException.cs</code> является исключением для запросов. Предоставляет сведения об возникшей ошибки во время исполнения запроса. Может быть получен на стадии обработки как клиента, так и сервера.</p>
+                </div>
+            </section>       
+
+        </div>
+    </div>
+
+    <div class="footer" id="footerID">
+        
+    </div>
+</body>
+</html>
